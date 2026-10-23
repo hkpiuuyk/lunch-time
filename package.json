@@ -1,0 +1,11 @@
+{
+  "name": "lunch-time",
+  "version": "1.0.0",
+  "description": "급식 줄 예상 시간 서비스",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {}
+}
