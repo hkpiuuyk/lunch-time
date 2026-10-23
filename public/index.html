@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>런치타임 | 급식 줄 예상 시간</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app" id="homePage">
+    <header>
+      <div class="logo"><span>🍽️</span> 런치타임</div>
+      <button class="notice" id="noticeBtn">🔔 알림 켜기</button>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">10월 23일 금요일 · 점심시간</p>
+      <h1>지금, 어디가<br><em>가장 빠를까?</em></h1>
+      <p>줄 서기 전에 확인하고, 여유롭게 밥 먹자!</p>
+    </section>
+
+    <section class="my-turn" id="myTurn">
+      <div><p>내가 갈 급식실</p><strong id="selectedName">별관 급식실</strong></div>
+      <div class="time"><small>예상 대기</small><b id="selectedTime">7분</b></div>
+    </section>
+
+    <section class="section-head"><h2>급식실 실시간 현황</h2><span id="updated">방금 업데이트</span></section>
+    <section id="cafeteriaList" class="cards" aria-live="polite"></section>
+
+    <section class="tip"><span>💡</span><p><b>런치 팁!</b><br>별관 급식실은 지금 가장 여유로워요.</p></section>
+  </main>
+  <main class="app page-hidden" id="profilePage">
+    <header><button class="back" id="backBtn">←</button><div class="logo">내 정보</div><span class="header-space"></span></header>
+    <section class="profile-hero">
+      <div class="avatar">🧑‍🎓</div><div><p>오늘도 맛있게 먹어요!</p><h1 id="profileName">희찬 학생</h1><span id="profileClass">2학년 3반</span></div><button class="edit-btn" id="editProfileBtn">수정</button>
+    </section>
+    <section class="profile-card">
+      <p class="card-label">자주 가는 급식실</p><div class="favorite"><span>🍱</span><div><b>별관 급식실</b><small>평균 대기 시간 6분</small></div><em>›</em></div>
+    </section>
+    <section class="section-head profile-title"><h2>나의 이번 주 급식</h2></section>
+    <section class="stats">
+      <div><b>4회</b><span>급식 이용</span></div><div><b>6분</b><span>평균 대기</span></div><div><b>24분</b><span>아낀 시간</span></div>
+    </section>
+    <section class="profile-card setting-card"><div><b>🔔 대기 시간 알림</b><small>줄이 짧아지면 알려드려요</small></div><button class="toggle on" id="toggleBtn" aria-label="알림 끄기"><i></i></button></section>
+    <p class="profile-note">기록 기능은 다음 화면에서 이어서 만들어요.</p>
+  </main>
+  <main class="app page-hidden" id="recordPage">
+    <header><div class="logo">급식 기록</div><button class="notice" id="calendarBtn">📅 10월</button></header>
+    <div class="month-picker page-hidden" id="monthPicker"><button data-month="9">9월</button><button class="selected-month" data-month="10">10월</button><button data-month="11">11월</button></div>
+    <section class="record-hero"><p>이번 주, 점심시간을</p><h1><em>24분</em> 아꼈어요!</h1><span>런치타임으로 줄 서는 시간을 줄였어요.</span></section>
+    <section class="week-days"><button><small>월</small><b>19</b></button><button><small>화</small><b>20</b></button><button><small>수</small><b>21</b></button><button><small>목</small><b>22</b></button><button class="today"><small>금</small><b>23</b></button></section>
+    <section class="section-head record-head"><h2 id="recordTitle">10월 이용 기록</h2><button class="add-record" id="addRecordBtn">+ 기록 추가</button></section>
+    <section class="record-list" id="recordList"></section>
+    <section class="record-summary" id="recordSummary"></section>
+  </main>
+  <nav><button class="active" data-page="home">⌂<span>홈</span></button><button data-page="record">◷<span>기록</span></button><button data-page="profile">♙<span>내 정보</span></button></nav>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
